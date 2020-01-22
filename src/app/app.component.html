@@ -9,11 +9,12 @@
   <app-post
     *ngFor="let p of posts"
     [post]="p">
-    <small *ngIf="p.text.length>10; else short">Post to long</small>
-    <ng-template #short>
+    <div #info>
+      <small *ngIf="p.text.length>10; else short">Post to long</small>
+      <ng-template #short>
       <small>Post to short</small>
-    </ng-template>
-
+      </ng-template>
+    </div>
   </app-post>
 </div>
 <router-outlet></router-outlet>
