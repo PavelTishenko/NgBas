@@ -1,4 +1,19 @@
 <div>
   <h1>Angular Components</h1>
+
+  <app-post-form
+    (onAdd)="updatePosts($event)"></app-post-form>
+
+  <hr />
+
+  <app-post
+    *ngFor="let p of posts"
+    [post]="p">
+    <small *ngIf="p.text.length>10; else short">Post to long</small>
+    <ng-template #short>
+      <small>Post to short</small>
+    </ng-template>
+
+  </app-post>
 </div>
 <router-outlet></router-outlet>
